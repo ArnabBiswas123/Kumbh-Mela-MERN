@@ -1,5 +1,5 @@
 const Admin = require("../../models/Admin");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const signup = async (req, res) => {
   try {
     let { username, password } = req.body;
@@ -11,11 +11,11 @@ const signup = async (req, res) => {
     if (userexists) {
       return res.status(400).json({ success: false, msg: "Already Exists" });
     }
-    const salt = await bcrypt.genSalt(10);
-    const securepassword = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const securepassword = await bcrypt.hash(password, salt);
     await Admin.create({
       username: username,
-      password: securepassword,
+      password: password
     });
     res.json({ success: true });
   } catch (error) {

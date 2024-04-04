@@ -1,5 +1,5 @@
 const Admin=require('../../models/Admin')
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const login=async (req,res)=>{
 try {
@@ -11,9 +11,12 @@ try {
     if (!userData) {
         return res.status(400).json({success:false, msg: 'Try logging valid credentials' });
     }
-    const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
+    // const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
 
-    if (!pwdCompare) {
+    // if (!pwdCompare) {
+    //     return res.status(400).json({success:false, msg: 'Try logging valid credentials' });
+    // }
+    if (req.body.password!== userData.password) {
         return res.status(400).json({success:false, msg: 'Try logging valid credentials' });
     }
 
