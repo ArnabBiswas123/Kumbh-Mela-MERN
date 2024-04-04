@@ -4,6 +4,7 @@ const app = express();
 const kumbhRouter=require('./routes/kumbhRouter');
 const adminRouter=require('./routes/adminRouter')
 const customerRouter=require('./routes/customerRouter')
+const path=require('path')
 
 const port = process.env.PORT || 5000;
 
@@ -20,6 +21,14 @@ app.get("/", (req, res) => {
 app.use('/api/v1/kumbh',kumbhRouter)
 app.use('/api/v1/user',adminRouter)
 app.use('/api/v1/customer',customerRouter)
+
+//production script
+
+app.use(express.static("./Frontend/build"));
+
+app.get("*", (req,res)=>{
+  res.sendFile(path.resolve(__dirname,"Frontend","build","index.html"))
+});
 
 const start = async () => {
   try {
