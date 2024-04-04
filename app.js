@@ -14,9 +14,9 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("The Maha Kumbh");
-});
+// app.get("/", (req, res) => {
+//   res.send("The Maha Kumbh");
+// });
 
 app.use('/api/v1/kumbh',kumbhRouter)
 app.use('/api/v1/user',adminRouter)
