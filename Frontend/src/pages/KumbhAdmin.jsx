@@ -4,12 +4,13 @@ import AdminHeader from "../components/DashboardPage/AdminHeader";
 import Sections from "../components/KumbhAdmin/Sections";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import baseUrl from "../baseUrl";
 
 export default function KumbhAdmin() {
   const navigate = useNavigate();
   const fetchData = async (token) => {
     const res = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}api/v1/kumbh/getallpackage`,
+      `${baseUrl}api/v1/kumbh/getallpackage`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

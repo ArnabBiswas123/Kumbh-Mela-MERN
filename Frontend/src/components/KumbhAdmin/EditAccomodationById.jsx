@@ -159,7 +159,7 @@ export default function EditAccomodationById() {
             navigate("/adminlogin");
           }
           const response = await fetch(
-            `${process.env.REACT_APP_BACKEND_URL}api/v1/kumbh/editaccomodation`,
+            `${baseUrl}api/v1/kumbh/editaccomodation`,
             {
               method: "put",
               headers: {

@@ -11,6 +11,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import baseUrl from "../baseUrl";
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +35,7 @@ export default function LoginPage() {
     try {
       setLoading(true);
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}api/v1/user/login`,
+        `${baseUrl}api/v1/user/login`,
         {
           method: "POST",
           headers: {

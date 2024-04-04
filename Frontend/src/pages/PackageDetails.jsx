@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { useMediaQuery, Text, Center, Image } from "@chakra-ui/react";
+import {  Text, Center, Image } from "@chakra-ui/react";
 import Header from "../components/common/Header";
 import Header2 from "../components/common/Header2";
 import MobileHeader from "../components/common/MobileHeader";
 import Footer from "../components/common/Footer";
 import { Helmet } from "react-helmet";
+import baseUrl from "../baseUrl";
 export default function PackageDetails() {
   const { title } = useParams();
   const [packageTitle, setPackageTitle] = useState("");;
@@ -22,7 +23,7 @@ export default function PackageDetails() {
     try {
       // console.log(title)
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}api/v1/kumbh/getpackagebytitle/${title}`
+        `${baseUrl}api/v1/kumbh/getpackagebytitle/${title}`
       );
       const data = await response.json();
       console.log(data)

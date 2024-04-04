@@ -51,7 +51,7 @@ export default function EditPackage() {
       // console.log(id)
       const token=localStorage.getItem('token');
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}api/v1/kumbh/deletepackage/${id}`,
+        `${baseUrl}api/v1/kumbh/deletepackage/${id}`,
         {
           method: "DELETE",
           headers: {
